@@ -13,3 +13,6 @@ class Config:
     # Credentials
     TEST_USER = os.getenv("TEST_USER")
     PASSWORD = os.getenv("PASSWORD")
+    TWITTER_API_KEY = os.getenv("TWITTER_API_KEY")
+    TWITTER_SECRET_KEY= os.getenv("TWITTER_API_SECRET")
+    TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")

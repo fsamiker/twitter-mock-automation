@@ -1,3 +1,5 @@
+from requests import api
+from twitter.api.client import TwitterAPI
 from selenium.webdriver.chrome.options import Options
 from config import Config
 import pytest
@@ -8,7 +10,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def config():
     return Config()
 
@@ -24,6 +26,11 @@ def browser(request, config):
     request.cls.driver = driver
     yield
     driver.quit()
+
+@pytest.fixture(scope="session")
+def twitter_api(config):
+    api_client = TwitterAPI(config.TWITTER_API_KEY, config.TWITTER_SECRET_KEY, config.TWITTER_BEARER_TOKEN)
+    yield api_client
 
 @pytest.fixture
 def twitter_test_user(config):
