@@ -4,6 +4,7 @@ import requests
 import json
 
 class TwitterAPI:
+    """Twitter client class to interact with API v2"""
 
     BASE_URL = "https://api.twitter.com/2/"
 

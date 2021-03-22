@@ -1,4 +1,7 @@
 class BasePage:
+    """
+    This class contains functionality to be shared by any page object
+    """
 
     DEFAULT_PAGE_LOAD = 5  # seconds
 
